@@ -66,7 +66,7 @@ public class BusinessServlet extends HttpServlet {
 	     if( u == null || !u.getPw().equals(password))
 	     {
 	    	 result = new Result();
-	    	 result.setError(-200);
+	    	 result.setError(ErrorCodeEnum.PASSWORD_WRONG);
 	     }
 	     else if(op.equals("add"))
 	     {
@@ -87,7 +87,7 @@ public class BusinessServlet extends HttpServlet {
 	     else
 	     {
 	    	 result = new Result();
-	    	 result.setError(-100);
+	    	 result.setError(ErrorCodeEnum.OPERATION_WRONG);
 	     }
 	     searchSession.commit();
 	     searchSession.close();
@@ -129,12 +129,12 @@ public class BusinessServlet extends HttpServlet {
    		    }
    		    else
    		    {
-   		    	result.setError(-301);
+   		    	result.setError(ErrorCodeEnum.USER_EXISTED);
    		    }
 	    }
    	    else
    	    {
-   		    result.setError(-300);
+   		    result.setError(ErrorCodeEnum.NO_PERMISSIONS);
    	    }
 		return result;
 	}
@@ -154,12 +154,12 @@ public class BusinessServlet extends HttpServlet {
    		    }
    		    else
    		    {
-   		    	result.setError(-302);
+   		    	result.setError(ErrorCodeEnum.USER_NOT_EXISTED);
    		    }
 	    }
    	    else
    	    {
-   		    result.setError(-300);
+   		    result.setError(ErrorCodeEnum.NO_PERMISSIONS);
    	    }
 		return result;
 	}
@@ -184,12 +184,12 @@ public class BusinessServlet extends HttpServlet {
    		    }
    		    else
    		    {
-   		    	result.setError(-302);
+   		    	result.setError(ErrorCodeEnum.USER_NOT_EXISTED);
    		    }
 	    }
    	    else
    	    {
-   		    result.setError(-300);
+   		    result.setError(ErrorCodeEnum.NO_PERMISSIONS);
    	    }
 		return result;
 	}
@@ -198,7 +198,7 @@ public class BusinessServlet extends HttpServlet {
 		Result  result = new Result();
 		if( user.isRootUser())
 	    {
-			result.setError(-300);
+			result.setError(ErrorCodeEnum.NO_PERMISSIONS);
 	    }
    	    else
    	    {
@@ -209,7 +209,7 @@ public class BusinessServlet extends HttpServlet {
    		    }
    		    else
    		    {
-   		    	result.setError(-303);
+   		    	result.setError(ErrorCodeEnum.TIME_WRONG);
    		    }
    	    }
 		return result;

@@ -80,11 +80,11 @@ public class LoginServlet extends HttpServlet {
         User u = userMapper.getUser(userNum);
         if(u == null)
         {
-        	result.setError(-200);;
+        	result.setError(ErrorCodeEnum.USER_WRONG);;
         }
         else if(!password.equals(u.getPw()) )
         {
-        	result.setError(-100);
+        	result.setError(ErrorCodeEnum.PASSWORD_WRONG);
         }
         else
         {

@@ -6,9 +6,9 @@ public class Result {
 	private int    code = -1;
 	private String status = "";
 	
-	public void setError(int code)
+	public void setError(ErrorCodeEnum  code)
 	{
-		this.code = code;
+		this.code = code.getCode();
 		this.status = "error";
 	}
 	public void setSuccess()
